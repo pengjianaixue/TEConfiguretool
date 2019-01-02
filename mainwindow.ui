@@ -226,6 +226,12 @@
      <height>17</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -234,8 +240,25 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionLink"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLink">
+   <property name="icon">
+    <iconset>
+     <normalon>:/Action/actionimage/imageresource/link.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Link</string>
+   </property>
+   <property name="toolTip">
+    <string> push the  button to link the database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

@@ -17,6 +17,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
@@ -31,6 +32,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionLink;
     QWidget *centralWidget;
     QGridLayout *gridLayout_12;
     QSplitter *splitter;
@@ -83,6 +85,7 @@ public:
     QGridLayout *gridLayout_17;
     QTableView *tableView_14;
     QMenuBar *menuBar;
+    QMenu *menuAbout;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -91,6 +94,11 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(931, 496);
+        actionLink = new QAction(MainWindow);
+        actionLink->setObjectName(QStringLiteral("actionLink"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Action/actionimage/imageresource/link.png"), QSize(), QIcon::Normal, QIcon::On);
+        actionLink->setIcon(icon);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_12 = new QGridLayout(centralWidget);
@@ -317,6 +325,8 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 931, 17));
+        menuAbout = new QMenu(menuBar);
+        menuAbout->setObjectName(QStringLiteral("menuAbout"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -324,6 +334,9 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuAbout->menuAction());
+        mainToolBar->addAction(actionLink);
 
         retranslateUi(MainWindow);
 
@@ -336,6 +349,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        actionLink->setText(QApplication::translate("MainWindow", "Link", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionLink->setToolTip(QApplication::translate("MainWindow", " push the  button to link the database", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionLink->setShortcut(QApplication::translate("MainWindow", "Ctrl+L", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
         groupBox->setTitle(QApplication::translate("MainWindow", "product list", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "product info", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Agenda), QApplication::translate("MainWindow", "Agenda", Q_NULLPTR));
@@ -352,6 +372,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Internal_RS", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_12), QApplication::translate("MainWindow", "SPD", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_13), QApplication::translate("MainWindow", "FCC_RS", Q_NULLPTR));
+        menuAbout->setTitle(QApplication::translate("MainWindow", "About", Q_NULLPTR));
     } // retranslateUi
 
 };
