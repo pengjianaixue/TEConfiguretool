@@ -10,4 +10,6 @@
 #include <QAbstractItemModel>
 #include <QAbstractItemDelegate>
 #include <QAbstractItemView>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
 #endif // RESOURCE_H

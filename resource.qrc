@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Action/actionimage">
+        <file>imageresource/link.png</file>
+        <file>imageresource/unlink.png</file>
+    </qresource>
+</RCC>
