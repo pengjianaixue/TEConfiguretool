@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.4
+** Created by: Qt User Interface Compiler version 5.9.7
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -40,16 +40,16 @@ public:
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
     QTabWidget *tabWidget;
-    QWidget *Agin;
+    QWidget *Agenda;
     QGridLayout *gridLayout_13;
     QTableView *tableView;
-    QWidget *tab_2;
+    QWidget *Ru_CommonInput;
     QGridLayout *gridLayout_3;
     QTableView *tableView_2;
-    QWidget *tab_4;
+    QWidget *Te_CommonInput;
     QGridLayout *gridLayout_4;
     QTableView *tableView_3;
-    QWidget *tab_5;
+    QWidget *RumaCreateCustom;
     QGridLayout *gridLayout_5;
     QTableView *tableView_4;
     QWidget *tab_6;
@@ -70,6 +70,18 @@ public:
     QWidget *tab_3;
     QGridLayout *gridLayout_11;
     QTableView *tableView_10;
+    QWidget *tab;
+    QGridLayout *gridLayout_14;
+    QTableView *tableView_11;
+    QWidget *tab_11;
+    QGridLayout *gridLayout_15;
+    QTableView *tableView_12;
+    QWidget *tab_12;
+    QGridLayout *gridLayout_16;
+    QTableView *tableView_13;
+    QWidget *tab_13;
+    QGridLayout *gridLayout_17;
+    QTableView *tableView_14;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -121,13 +133,13 @@ public:
         tabWidget = new QTabWidget(groupBox_2);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setStyleSheet(QStringLiteral(""));
-        Agin = new QWidget();
-        Agin->setObjectName(QStringLiteral("Agin"));
-        gridLayout_13 = new QGridLayout(Agin);
+        Agenda = new QWidget();
+        Agenda->setObjectName(QStringLiteral("Agenda"));
+        gridLayout_13 = new QGridLayout(Agenda);
         gridLayout_13->setSpacing(6);
         gridLayout_13->setContentsMargins(11, 11, 11, 11);
         gridLayout_13->setObjectName(QStringLiteral("gridLayout_13"));
-        tableView = new QTableView(Agin);
+        tableView = new QTableView(Agenda);
         tableView->setObjectName(QStringLiteral("tableView"));
         QSizePolicy sizePolicy2(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
         sizePolicy2.setHorizontalStretch(0);
@@ -137,43 +149,43 @@ public:
 
         gridLayout_13->addWidget(tableView, 0, 0, 1, 1);
 
-        tabWidget->addTab(Agin, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
-        gridLayout_3 = new QGridLayout(tab_2);
+        tabWidget->addTab(Agenda, QString());
+        Ru_CommonInput = new QWidget();
+        Ru_CommonInput->setObjectName(QStringLiteral("Ru_CommonInput"));
+        gridLayout_3 = new QGridLayout(Ru_CommonInput);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        tableView_2 = new QTableView(tab_2);
+        tableView_2 = new QTableView(Ru_CommonInput);
         tableView_2->setObjectName(QStringLiteral("tableView_2"));
 
         gridLayout_3->addWidget(tableView_2, 0, 0, 1, 1);
 
-        tabWidget->addTab(tab_2, QString());
-        tab_4 = new QWidget();
-        tab_4->setObjectName(QStringLiteral("tab_4"));
-        gridLayout_4 = new QGridLayout(tab_4);
+        tabWidget->addTab(Ru_CommonInput, QString());
+        Te_CommonInput = new QWidget();
+        Te_CommonInput->setObjectName(QStringLiteral("Te_CommonInput"));
+        gridLayout_4 = new QGridLayout(Te_CommonInput);
         gridLayout_4->setSpacing(6);
         gridLayout_4->setContentsMargins(11, 11, 11, 11);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        tableView_3 = new QTableView(tab_4);
+        tableView_3 = new QTableView(Te_CommonInput);
         tableView_3->setObjectName(QStringLiteral("tableView_3"));
 
         gridLayout_4->addWidget(tableView_3, 0, 0, 1, 1);
 
-        tabWidget->addTab(tab_4, QString());
-        tab_5 = new QWidget();
-        tab_5->setObjectName(QStringLiteral("tab_5"));
-        gridLayout_5 = new QGridLayout(tab_5);
+        tabWidget->addTab(Te_CommonInput, QString());
+        RumaCreateCustom = new QWidget();
+        RumaCreateCustom->setObjectName(QStringLiteral("RumaCreateCustom"));
+        gridLayout_5 = new QGridLayout(RumaCreateCustom);
         gridLayout_5->setSpacing(6);
         gridLayout_5->setContentsMargins(11, 11, 11, 11);
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        tableView_4 = new QTableView(tab_5);
+        tableView_4 = new QTableView(RumaCreateCustom);
         tableView_4->setObjectName(QStringLiteral("tableView_4"));
 
         gridLayout_5->addWidget(tableView_4, 0, 0, 1, 1);
 
-        tabWidget->addTab(tab_5, QString());
+        tabWidget->addTab(RumaCreateCustom, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QStringLiteral("tab_6"));
         gridLayout_6 = new QGridLayout(tab_6);
@@ -246,6 +258,54 @@ public:
         gridLayout_11->addWidget(tableView_10, 0, 0, 1, 1);
 
         tabWidget->addTab(tab_3, QString());
+        tab = new QWidget();
+        tab->setObjectName(QStringLiteral("tab"));
+        gridLayout_14 = new QGridLayout(tab);
+        gridLayout_14->setSpacing(6);
+        gridLayout_14->setContentsMargins(11, 11, 11, 11);
+        gridLayout_14->setObjectName(QStringLiteral("gridLayout_14"));
+        tableView_11 = new QTableView(tab);
+        tableView_11->setObjectName(QStringLiteral("tableView_11"));
+
+        gridLayout_14->addWidget(tableView_11, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab, QString());
+        tab_11 = new QWidget();
+        tab_11->setObjectName(QStringLiteral("tab_11"));
+        gridLayout_15 = new QGridLayout(tab_11);
+        gridLayout_15->setSpacing(6);
+        gridLayout_15->setContentsMargins(11, 11, 11, 11);
+        gridLayout_15->setObjectName(QStringLiteral("gridLayout_15"));
+        tableView_12 = new QTableView(tab_11);
+        tableView_12->setObjectName(QStringLiteral("tableView_12"));
+
+        gridLayout_15->addWidget(tableView_12, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab_11, QString());
+        tab_12 = new QWidget();
+        tab_12->setObjectName(QStringLiteral("tab_12"));
+        gridLayout_16 = new QGridLayout(tab_12);
+        gridLayout_16->setSpacing(6);
+        gridLayout_16->setContentsMargins(11, 11, 11, 11);
+        gridLayout_16->setObjectName(QStringLiteral("gridLayout_16"));
+        tableView_13 = new QTableView(tab_12);
+        tableView_13->setObjectName(QStringLiteral("tableView_13"));
+
+        gridLayout_16->addWidget(tableView_13, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab_12, QString());
+        tab_13 = new QWidget();
+        tab_13->setObjectName(QStringLiteral("tab_13"));
+        gridLayout_17 = new QGridLayout(tab_13);
+        gridLayout_17->setSpacing(6);
+        gridLayout_17->setContentsMargins(11, 11, 11, 11);
+        gridLayout_17->setObjectName(QStringLiteral("gridLayout_17"));
+        tableView_14 = new QTableView(tab_13);
+        tableView_14->setObjectName(QStringLiteral("tableView_14"));
+
+        gridLayout_17->addWidget(tableView_14, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab_13, QString());
 
         gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
 
@@ -267,7 +327,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(9);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -278,16 +338,20 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "product list", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "product info", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(Agin), QApplication::translate("MainWindow", "Agin", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "TE_PARAM", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_10), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "\351\241\265", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(Agenda), QApplication::translate("MainWindow", "Agenda", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(Ru_CommonInput), QApplication::translate("MainWindow", "Ru_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(Te_CommonInput), QApplication::translate("MainWindow", "Te_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(RumaCreateCustom), QApplication::translate("MainWindow", "RumaCreateCustom", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "RPV_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("MainWindow", "RCA_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "ParHr_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("MainWindow", "MicroSlp_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_10), QApplication::translate("MainWindow", "CAL_TA_CommonInput", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "ManualTcConfig", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "RCA_RS", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Internal_RS", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_12), QApplication::translate("MainWindow", "SPD", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_13), QApplication::translate("MainWindow", "FCC_RS", Q_NULLPTR));
     } // retranslateUi
 
 };

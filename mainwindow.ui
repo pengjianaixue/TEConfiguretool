@@ -60,11 +60,11 @@
            <string notr="true"/>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>3</number>
           </property>
-          <widget class="QWidget" name="Agin">
+          <widget class="QWidget" name="Agenda">
            <attribute name="title">
-            <string>Agin</string>
+            <string>Agenda</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_13">
             <item row="0" column="0">
@@ -79,9 +79,9 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_2">
+          <widget class="QWidget" name="Ru_CommonInput">
            <attribute name="title">
-            <string>TE_PARAM</string>
+            <string>Ru_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
@@ -89,9 +89,9 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_4">
+          <widget class="QWidget" name="Te_CommonInput">
            <attribute name="title">
-            <string>页</string>
+            <string>Te_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
@@ -99,9 +99,9 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_5">
+          <widget class="QWidget" name="RumaCreateCustom">
            <attribute name="title">
-            <string>页</string>
+            <string>RumaCreateCustom</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
@@ -111,7 +111,7 @@
           </widget>
           <widget class="QWidget" name="tab_6">
            <attribute name="title">
-            <string>页</string>
+            <string>RPV_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_6">
             <item row="0" column="0">
@@ -121,7 +121,7 @@
           </widget>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
-            <string>页</string>
+            <string>RCA_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_7">
             <item row="0" column="0">
@@ -131,7 +131,7 @@
           </widget>
           <widget class="QWidget" name="tab_8">
            <attribute name="title">
-            <string>页</string>
+            <string>ParHr_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_8">
             <item row="0" column="0">
@@ -141,7 +141,7 @@
           </widget>
           <widget class="QWidget" name="tab_9">
            <attribute name="title">
-            <string>页</string>
+            <string>MicroSlp_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
@@ -151,7 +151,7 @@
           </widget>
           <widget class="QWidget" name="tab_10">
            <attribute name="title">
-            <string>页</string>
+            <string>CAL_TA_CommonInput</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_10">
             <item row="0" column="0">
@@ -161,11 +161,51 @@
           </widget>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
-            <string>页</string>
+            <string>ManualTcConfig</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_11">
             <item row="0" column="0">
              <widget class="QTableView" name="tableView_10"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab">
+           <attribute name="title">
+            <string>RCA_RS</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <item row="0" column="0">
+             <widget class="QTableView" name="tableView_11"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_11">
+           <attribute name="title">
+            <string>Internal_RS</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_15">
+            <item row="0" column="0">
+             <widget class="QTableView" name="tableView_12"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_12">
+           <attribute name="title">
+            <string>SPD</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <item row="0" column="0">
+             <widget class="QTableView" name="tableView_13"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_13">
+           <attribute name="title">
+            <string>FCC_RS</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <item row="0" column="0">
+             <widget class="QTableView" name="tableView_14"/>
             </item>
            </layout>
           </widget>
