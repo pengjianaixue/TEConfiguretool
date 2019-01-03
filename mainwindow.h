@@ -20,7 +20,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     Login      *m_ploginform;
-    QSqlDatabase *m_pdb;
+    QSqlDatabase m_db;
 
 
 

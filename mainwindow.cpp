@@ -6,11 +6,13 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    m_ploginform(nullptr),
-	m_pdb(nullptr)
+    m_ploginform(nullptr)
 {
+
     ui->setupUi(this);
     m_ploginform = new Login(this);
+	m_ploginform->setWindowTitle("Login");
+	m_ploginform->setWindowFlag(Qt::FramelessWindowHint);
     connect(this->ui->actionLink,&QAction::triggered,this,&MainWindow::LinkToDataBase);
 
 
@@ -23,11 +25,6 @@ MainWindow::~MainWindow()
         delete m_ploginform;
 		m_ploginform = nullptr;
     }
-	if (m_pdb!=nullptr)
-	{
-		delete m_pdb;
-		m_pdb = nullptr;
-	}
     delete ui;
 }
 
@@ -41,20 +38,23 @@ int MainWindow::LinkToDataBase()
     QString databasename = configIniRead->value("/ServerHost/server_database").toString();
     QString databaseport = configIniRead->value("/ServerHost/server_port").toString();
     delete configIniRead;
-    (this->m_pdb) = &QSqlDatabase::addDatabase("QMYSQL");
-    this->m_pdb->setHostName(Hostip);
-    this->m_pdb->setPort(databaseport.toInt());
-    this->m_pdb->setUserName(user);
-    this->m_pdb->setPassword(password);
-    this->m_pdb->setDatabaseName(databasename);
-    if(this->m_pdb->open())
+    (this->m_db) = QSqlDatabase::addDatabase("QMYSQL");
+    this->m_db.setHostName(Hostip);
+    this->m_db.setPort(databaseport.toInt());
+    this->m_db.setUserName(user);
+    this->m_db.setPassword(password);
+    this->m_db.setDatabaseName(databasename);
+    if(this->m_db.open())
     {
-
         QMessageBox::information(this,"Good","Connect Succes.");
     }
     else
     {
-        QMessageBox::information(this,"Error","Connect fail,please check.");
+
+		//QMessageBox::critical(this, "Error", "Connect fail,please check.");
+		m_ploginform->show();
+		
+        
     }
 	return  0; 
 }

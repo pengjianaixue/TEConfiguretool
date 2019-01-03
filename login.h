@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::Login *ui;
+public slots:
+	void closeloginfram();
+
 };
 
 #endif // LOGIN_H

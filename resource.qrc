@@ -6,4 +6,9 @@
     <qresource prefix="/Configurefile">
         <file>databaseconfigure.ini</file>
     </qresource>
+    <qresource prefix="/Login">
+        <file>imageresource/Login.jpg</file>
+        <file>imageresource/cancel.png</file>
+        <file>imageresource/login.png</file>
+    </qresource>
 </RCC>
