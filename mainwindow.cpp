@@ -1,21 +1,22 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_ploginform(nullptr),
 	m_bdbsisconnect(false)
 {
-
     ui->setupUi(this);
+    connectslots();
     m_ploginform = new Login(this);
 	m_ploginform->setWindowTitle("Login");
 	m_ploginform->setWindowFlag(Qt::FramelessWindowHint);
-    connect(this->ui->actionLink,&QAction::triggered,this,&MainWindow::LinkToDataBase);
     (this->m_db) = QSqlDatabase::addDatabase("QMYSQL");
+    if (!this->m_db.isValid())
+    {
+        QMessageBox::critical(this,"Error","can't find database dirver");
+        exit(0);
+    }
 	m_ploginform->showFullScreen();
 }
 MainWindow::~MainWindow()
@@ -31,6 +32,25 @@ MainWindow::~MainWindow()
     }
     this->m_db.close();
     delete ui;
+}
+
+bool MainWindow::SaveData()
+{
+	for (auto &sqlmodel : m_pquerymodellist)
+	{
+		sqlmodel.second->database().transaction();
+		if (sqlmodel.second->submitAll())
+		{
+			sqlmodel.second->database().commit();
+		}
+		else
+		{
+			sqlmodel.second->database().rollback();
+			QMessageBox::warning(this, tr("tableModel"), tr("DataBase error: % 1").arg(sqlmodel.second->lastError().text()));
+			sqlmodel.second->revertAll();
+		}
+	}
+	return false;
 }
 
 void MainWindow::cleardatatableview()
@@ -53,6 +73,13 @@ void MainWindow::cleardatatableview()
 	this->ui->SPD_view->clearSpans();
 	this->ui->FCC_RS_view->clearSpans();
 
+}
+
+void MainWindow::connectslots()
+{
+
+	connect(this->ui->actionLink, &QAction::triggered, this, &MainWindow::LinkToDataBase);
+	connect(this->ui->actionSave, &QAction::triggered, this, &MainWindow::SaveData);
 }
 
 int MainWindow::LinkToDataBase()
@@ -79,7 +106,10 @@ int MainWindow::LinkToDataBase()
 			{
 				QMessageBox::information(this, "Good", "Connect Succes.");
 				this->ui->actionLink->setIcon(QIcon(":/Action/actionimage/imageresource/unlink.png"));
+				this->ui->actionLink->setToolTip("push this button to disconnect database");
 				m_bdbsisconnect = true;
+				m_ploginform->showNormal();
+
 			}
 			else
 			{
@@ -92,13 +122,10 @@ int MainWindow::LinkToDataBase()
 		{
 			QMessageBox::critical(this, "Error", "Connect fail,please check.");
 		}
-		
-		this->m_pquerymodellist.insert({ "Agenda", new QSqlQueryModel});
-		this->m_pquerymodellist.at("Agenda")->setQuery("select * from sakila.actor");
-		this->m_pquerymodellist.at("Agenda")->setHeaderData(0, Qt::Horizontal, "actor_id");
-		this->m_pquerymodellist.at("Agenda")->setHeaderData(1, Qt::Horizontal, "first_name");
-		this->m_pquerymodellist.at("Agenda")->setHeaderData(2, Qt::Horizontal, "last_name");
-		this->m_pquerymodellist.at("Agenda")->setHeaderData(3, Qt::Horizontal, "last_update");
+		this->m_pquerymodellist.insert({ "Agenda", new QSqlTableModel(this,this->m_db)});
+		this->m_pquerymodellist.at("Agenda")->setTable("product");
+        this->m_pquerymodellist.at("Agenda")->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		this->m_pquerymodellist.at("Agenda")->select();
 		this->ui->Agenda_view->setModel(this->m_pquerymodellist.at("Agenda"));
 		this->ui->Agenda_view->show();
 	}
@@ -106,9 +133,11 @@ int MainWindow::LinkToDataBase()
 	{
 		if (this->m_db.isOpen())
 		{
+
 			this->m_db.close();
 			this->cleardatatableview();
 			this->ui->actionLink->setIcon(QIcon(":/Action/actionimage/imageresource/link.png"));
+			this->ui->actionLink->setToolTip("push this button to connect database");
 			m_bdbsisconnect = false;
 		}
 	}

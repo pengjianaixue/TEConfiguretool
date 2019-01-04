@@ -11,6 +11,10 @@
 #include <QAbstractItemView>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSqlTableModel>
 #include <QSettings>
 #include <QMessageBox>
+#include <QtSql/QSqlError.h>
+#include <map>
 #endif // RESOURCE_H

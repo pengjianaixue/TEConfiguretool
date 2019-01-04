@@ -223,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>1116</width>
-     <height>31</height>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">
@@ -241,6 +241,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionLink"/>
+   <addaction name="actionSave"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionLink">
@@ -259,8 +260,25 @@
     <string>Ctrl+L</string>
    </property>
   </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Action/actionimage/imageresource/save.png</normaloff>:/Action/actionimage/imageresource/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>push this button to save data</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -2,6 +2,7 @@
     <qresource prefix="/Action/actionimage">
         <file>imageresource/link.png</file>
         <file>imageresource/unlink.png</file>
+        <file>imageresource/save.png</file>
     </qresource>
     <qresource prefix="/Configurefile">
         <file>databaseconfigure.ini</file>
