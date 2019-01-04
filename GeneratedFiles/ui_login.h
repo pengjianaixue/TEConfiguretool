@@ -14,7 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -28,51 +28,59 @@ QT_BEGIN_NAMESPACE
 class Ui_Login
 {
 public:
-    QHBoxLayout *horizontalLayout_4;
+    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_8;
     QSpacerItem *horizontalSpacer_3;
+    QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_2;
     QSpacerItem *verticalSpacer_7;
     QLabel *label_3;
     QSpacerItem *verticalSpacer_2;
-    QFormLayout *formLayout;
+    QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
-    QSpacerItem *verticalSpacer_3;
     QLineEdit *LE_user;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
-    QSpacerItem *verticalSpacer_4;
     QLineEdit *LE_Password;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *B_Login;
-    QSpacerItem *verticalSpacer_5;
-    QSpacerItem *verticalSpacer_6;
+    QSpacerItem *horizontalSpacer_5;
     QPushButton *B_Cancel;
-    QSpacerItem *horizontalSpacer;
+    QHBoxLayout *horizontalLayout_4;
     QPushButton *B_Cancel_2;
+    QSpacerItem *horizontalSpacer;
     QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *verticalSpacer;
 
     void setupUi(QDialog *Login)
     {
         if (Login->objectName().isEmpty())
             Login->setObjectName(QStringLiteral("Login"));
-        Login->resize(934, 546);
+        Login->resize(912, 546);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Login->sizePolicy().hasHeightForWidth());
         Login->setSizePolicy(sizePolicy);
         Login->setAutoFillBackground(true);
-        horizontalLayout_4 = new QHBoxLayout(Login);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalSpacer_3 = new QSpacerItem(116, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        gridLayout = new QGridLayout(Login);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalSpacer_3 = new QSpacerItem(196, 14, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_3);
+        horizontalLayout_8->addItem(horizontalSpacer_3);
 
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_7 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer_7);
 
@@ -86,27 +94,27 @@ public:
 
         verticalLayout_2->addWidget(label_3);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 48, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer_2);
 
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+
+        verticalLayout_5->addLayout(verticalLayout_2);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label = new QLabel(Login);
         label->setObjectName(QStringLiteral("label"));
+        label->setMinimumSize(QSize(102, 0));
         QFont font1;
         font1.setPointSize(12);
         label->setFont(font1);
 
         horizontalLayout->addWidget(label);
-
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        horizontalLayout->addItem(verticalSpacer_3);
 
         LE_user = new QLineEdit(Login);
         LE_user->setObjectName(QStringLiteral("LE_user"));
@@ -125,13 +133,10 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy1);
+        label_2->setMinimumSize(QSize(102, 0));
         label_2->setFont(font1);
 
         horizontalLayout_2->addWidget(label_2);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        horizontalLayout_2->addItem(verticalSpacer_4);
 
         LE_Password = new QLineEdit(Login);
         LE_Password->setObjectName(QStringLiteral("LE_Password"));
@@ -142,7 +147,7 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
 
-        formLayout->setLayout(0, QFormLayout::SpanningRole, verticalLayout);
+        verticalLayout_4->addLayout(verticalLayout);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
@@ -163,13 +168,9 @@ public:
 
         horizontalLayout_3->addWidget(B_Login);
 
-        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
 
-        horizontalLayout_3->addItem(verticalSpacer_5);
-
-        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        horizontalLayout_3->addItem(verticalSpacer_6);
+        horizontalLayout_3->addItem(horizontalSpacer_5);
 
         B_Cancel = new QPushButton(Login);
         B_Cancel->setObjectName(QStringLiteral("B_Cancel"));
@@ -184,31 +185,49 @@ public:
         horizontalLayout_3->addWidget(B_Cancel);
 
 
-        formLayout->setLayout(1, QFormLayout::LabelRole, horizontalLayout_3);
+        verticalLayout_4->addLayout(horizontalLayout_3);
 
-        horizontalSpacer = new QSpacerItem(148, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        formLayout->setItem(1, QFormLayout::FieldRole, horizontalSpacer);
-
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         B_Cancel_2 = new QPushButton(Login);
         B_Cancel_2->setObjectName(QStringLiteral("B_Cancel_2"));
-        sizePolicy2.setHeightForWidth(B_Cancel_2->sizePolicy().hasHeightForWidth());
-        B_Cancel_2->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(B_Cancel_2->sizePolicy().hasHeightForWidth());
+        B_Cancel_2->setSizePolicy(sizePolicy3);
         B_Cancel_2->setFont(font3);
         B_Cancel_2->setStyleSheet(QLatin1String("image: url(:/Login/imageresource/cancel.png);\n"
 "background-color: rgb(200, 80, 59);"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, B_Cancel_2);
+        horizontalLayout_4->addWidget(B_Cancel_2);
+
+        horizontalSpacer = new QSpacerItem(136, 34, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer);
 
 
-        verticalLayout_2->addLayout(formLayout);
+        verticalLayout_4->addLayout(horizontalLayout_4);
 
 
-        horizontalLayout_4->addLayout(verticalLayout_2);
+        verticalLayout_5->addLayout(verticalLayout_4);
 
-        horizontalSpacer_2 = new QSpacerItem(166, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_2);
+        horizontalLayout_8->addLayout(verticalLayout_5);
+
+        horizontalSpacer_2 = new QSpacerItem(226, 14, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_2);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_8);
+
+        verticalSpacer = new QSpacerItem(20, 138, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
+
+        verticalLayout_6->addItem(verticalSpacer);
+
+
+        gridLayout->addLayout(verticalLayout_6, 0, 0, 1, 1);
 
 
         retranslateUi(Login);
@@ -219,8 +238,8 @@ public:
     void retranslateUi(QDialog *Login)
     {
         Login->setWindowTitle(QApplication::translate("Login", "Login", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Login", "Login", Q_NULLPTR));
-        label->setText(QApplication::translate("Login", "Uername ", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Login", " Login", Q_NULLPTR));
+        label->setText(QApplication::translate("Login", "Uername", Q_NULLPTR));
         label_2->setText(QApplication::translate("Login", "Password", Q_NULLPTR));
         B_Login->setText(QApplication::translate("Login", "Login", Q_NULLPTR));
         B_Cancel->setText(QApplication::translate("Login", "Cancel", Q_NULLPTR));

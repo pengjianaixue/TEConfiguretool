@@ -33,7 +33,6 @@ MainWindow::~MainWindow()
     this->m_db.close();
     delete ui;
 }
-
 bool MainWindow::SaveData()
 {
 	for (auto &sqlmodel : m_pquerymodellist)
@@ -85,6 +84,7 @@ void MainWindow::connectslots()
 int MainWindow::LinkToDataBase()
 {
 	
+
     QSettings *configIniRead = new QSettings(":/Configurefile/databaseconfigure.ini", QSettings::IniFormat);
     QString Hostip = configIniRead->value("/ServerHost/srever_host").toString();
     QString user = configIniRead->value("/ServerHost/server_admin").toString();
@@ -109,6 +109,7 @@ int MainWindow::LinkToDataBase()
 				this->ui->actionLink->setToolTip("push this button to disconnect database");
 				m_bdbsisconnect = true;
 				m_ploginform->showNormal();
+				
 
 			}
 			else
