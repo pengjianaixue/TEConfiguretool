@@ -60,7 +60,7 @@
            <string notr="true"/>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="Agenda">
            <attribute name="title">
@@ -68,7 +68,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_13">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView">
+             <widget class="QTableView" name="Agenda_view">
               <property name="sizePolicy">
                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -85,7 +85,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_2"/>
+             <widget class="QTableView" name="Ru_view"/>
             </item>
            </layout>
           </widget>
@@ -95,7 +95,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_3"/>
+             <widget class="QTableView" name="Te_view"/>
             </item>
            </layout>
           </widget>
@@ -105,7 +105,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_4"/>
+             <widget class="QTableView" name="Ruma_view"/>
             </item>
            </layout>
           </widget>
@@ -115,17 +115,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_6">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_5"/>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_7">
-           <attribute name="title">
-            <string>RCA_CommonInput</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout_7">
-            <item row="0" column="0">
-             <widget class="QTableView" name="tableView_6"/>
+             <widget class="QTableView" name="RPV_view"/>
             </item>
            </layout>
           </widget>
@@ -135,7 +125,17 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_8">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_7"/>
+             <widget class="QTableView" name="ParHr_view"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_7">
+           <attribute name="title">
+            <string>RCA_CommonInput</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="0">
+             <widget class="QTableView" name="RCA_view"/>
             </item>
            </layout>
           </widget>
@@ -145,7 +145,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_8"/>
+             <widget class="QTableView" name="Mirco_view"/>
             </item>
            </layout>
           </widget>
@@ -155,7 +155,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_10">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_9"/>
+             <widget class="QTableView" name="CAL_TA_view"/>
             </item>
            </layout>
           </widget>
@@ -165,7 +165,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_11">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_10"/>
+             <widget class="QTableView" name="ManualTc_view"/>
             </item>
            </layout>
           </widget>
@@ -175,7 +175,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_14">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_11"/>
+             <widget class="QTableView" name="RCA_RS_view"/>
             </item>
            </layout>
           </widget>
@@ -185,7 +185,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_15">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_12"/>
+             <widget class="QTableView" name="Inter_RS_view"/>
             </item>
            </layout>
           </widget>
@@ -195,7 +195,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_16">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_13"/>
+             <widget class="QTableView" name="SPD_view"/>
             </item>
            </layout>
           </widget>
@@ -205,7 +205,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_17">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_14"/>
+             <widget class="QTableView" name="FCC_RS_view"/>
             </item>
            </layout>
           </widget>

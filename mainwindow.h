@@ -16,14 +16,15 @@ public:
     ~MainWindow();
 public slots:
     int LinkToDataBase();
+private:
+	void cleardatatableview();
 
 private:
-    Ui::MainWindow *ui;
-    Login      *m_ploginform;
-    QSqlDatabase m_db;
-
-
-
+    Ui::MainWindow				*ui;
+    Login						*m_ploginform;
+    QSqlDatabase				 m_db;
+	bool						 m_bdbsisconnect;
+	std::map<std::string, QSqlQueryModel*>	 m_pquerymodellist;
 };
 
 #endif // MAINWINDOW_H
