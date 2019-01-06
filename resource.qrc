@@ -12,4 +12,7 @@
         <file>imageresource/cancel.png</file>
         <file>imageresource/login.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>data_configuration.ico</file>
+    </qresource>
 </RCC>

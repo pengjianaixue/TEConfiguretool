@@ -6,16 +6,34 @@ MainWindow::MainWindow(QWidget *parent) :
     m_ploginform(nullptr),
 	m_bdbsisconnect(false)
 {
+    // set ground glass BackGround
+    if(QtWin::isCompositionEnabled())
+    {
+        QtWin::extendFrameIntoClientArea(this,-1,-1,-1,-1);
+        setAttribute(Qt::WA_TranslucentBackground,true);
+        setAttribute(Qt::WA_NoSystemBackground,false);
+        setStyleSheet("MainWindows{Background:transparant;}");
+    }
+    else
+    {
+        QtWin::resetExtendedFrame(this);
+        setAttribute(Qt::WA_TranslucentBackground,false);
+        setStyleSheet(QString("MainWindows{Background:%1;}").arg(QtWin::realColorizationColor().name()));
+
+    }
+	
     ui->setupUi(this);
     connectslots();
     m_ploginform = new Login(this);
 	m_ploginform->setWindowTitle("Login");
 	m_ploginform->setWindowFlag(Qt::FramelessWindowHint);
+
+
     (this->m_db) = QSqlDatabase::addDatabase("QMYSQL");
     if (!this->m_db.isValid())
     {
         QMessageBox::critical(this,"Error","can't find database dirver");
-        exit(0);
+        //exit(0);
     }
 	m_ploginform->showFullScreen();
 }
@@ -52,6 +70,47 @@ bool MainWindow::SaveData()
 	return false;
 }
 
+bool MainWindow::SearchDataAndDisplay()
+{
+	
+	for (auto &model : this->m_teconfigname)
+	{
+		this->m_pquerymodellist.insert({ model, new QSqlTableModel(this,this->m_db) });
+		this->m_pquerymodellist.at(model)->setTable(QString(model.c_str()));
+		this->m_pquerymodellist.at(model)->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		this->m_pquerymodellist.at(model)->select();
+	}
+	this->ui->Agenda_view->setModel(this->m_pquerymodellist.at(m_teconfigname[0]));
+	this->ui->Agenda_view->show();
+	this->ui->Ru_view->setModel(this->m_pquerymodellist.at(m_teconfigname[1]));
+	this->ui->Ru_view->show();
+	this->ui->Te_view->setModel(this->m_pquerymodellist.at(m_teconfigname[2]));
+	this->ui->Te_view->show();
+	this->ui->Ruma_view->setModel(this->m_pquerymodellist.at(m_teconfigname[3]));
+	this->ui->Ruma_view->show();
+	this->ui->RPV_view->setModel(this->m_pquerymodellist.at(m_teconfigname[4]));
+	this->ui->RPV_view->show();
+	this->ui->ParHr_view->setModel(this->m_pquerymodellist.at(m_teconfigname[5]));
+	this->ui->ParHr_view->show();
+	this->ui->RCA_view->setModel(this->m_pquerymodellist.at(m_teconfigname[6]));
+	this->ui->RCA_view->show();
+	this->ui->Mirco_view->setModel(this->m_pquerymodellist.at(m_teconfigname[7]));
+	this->ui->Mirco_view->show();
+	this->ui->CAL_TA_view->setModel(this->m_pquerymodellist.at(m_teconfigname[8]));
+	this->ui->CAL_TA_view->show();
+	this->ui->ManualTc_view->setModel(this->m_pquerymodellist.at(m_teconfigname[9]));
+	this->ui->ManualTc_view->show();
+	this->ui->RCA_RS_view->setModel(this->m_pquerymodellist.at(m_teconfigname[10]));
+	this->ui->RCA_RS_view->show();
+	this->ui->Inter_RS_view->setModel(this->m_pquerymodellist.at(m_teconfigname[11]));
+	this->ui->Inter_RS_view->show();
+	this->ui->SPD_view->setModel(this->m_pquerymodellist.at(m_teconfigname[12]));
+	this->ui->SPD_view->show();
+	this->ui->FCC_RS_view->setModel(this->m_pquerymodellist.at(m_teconfigname[13]));
+	this->ui->FCC_RS_view->show();
+	return true;
+}
+
 void MainWindow::cleardatatableview()
 {
 	for (auto &sqlmodel : m_pquerymodellist)
@@ -79,6 +138,26 @@ void MainWindow::connectslots()
 
 	connect(this->ui->actionLink, &QAction::triggered, this, &MainWindow::LinkToDataBase);
 	connect(this->ui->actionSave, &QAction::triggered, this, &MainWindow::SaveData);
+}
+
+void MainWindow::initdataModel()
+{
+	this->m_teconfigname.push_back("Agenda");
+	this->m_teconfigname.push_back("Ru_CommonInput");
+	this->m_teconfigname.push_back("Te_CommonInput");
+	this->m_teconfigname.push_back("RumaCreateCustom");
+	this->m_teconfigname.push_back("RPV_CommonInput");
+	this->m_teconfigname.push_back("ParHr_CommonInput");
+	this->m_teconfigname.push_back("RCA_CommonInput");
+	this->m_teconfigname.push_back("MircoSlp_CommmonInput");
+	this->m_teconfigname.push_back("CAL_TA_CommonInput");
+	this->m_teconfigname.push_back("ManualTcConfig");
+	this->m_teconfigname.push_back("RCA_RS");
+	this->m_teconfigname.push_back("Internal_RS");
+	this->m_teconfigname.push_back("SPD");
+	this->m_teconfigname.push_back("FCC_RS");
+
+
 }
 
 int MainWindow::LinkToDataBase()
@@ -109,11 +188,13 @@ int MainWindow::LinkToDataBase()
 				this->ui->actionLink->setToolTip("push this button to disconnect database");
 				m_bdbsisconnect = true;
 				m_ploginform->showNormal();
+                SearchDataAndDisplay();
 				
 
 			}
 			else
 			{
+
 				QSqlError sqlerror = this->m_db.lastError();
 				QMessageBox::critical(this, "Error", sqlerror.text());
 				m_ploginform->showNormal();
@@ -122,13 +203,10 @@ int MainWindow::LinkToDataBase()
 		else
 		{
 			QMessageBox::critical(this, "Error", "Connect fail,please check.");
+            m_ploginform->showNormal();
 		}
-		this->m_pquerymodellist.insert({ "Agenda", new QSqlTableModel(this,this->m_db)});
-		this->m_pquerymodellist.at("Agenda")->setTable("product");
-        this->m_pquerymodellist.at("Agenda")->setEditStrategy(QSqlTableModel::OnManualSubmit);
-		this->m_pquerymodellist.at("Agenda")->select();
-		this->ui->Agenda_view->setModel(this->m_pquerymodellist.at("Agenda"));
-		this->ui->Agenda_view->show();
+
+		
 	}
 	else
 	{

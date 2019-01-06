@@ -16,5 +16,7 @@
 #include <QSettings>
 #include <QMessageBox>
 #include <QtSql/QSqlError.h>
+#include <QEvent>
+#include <QKeyEvent>
 #include <map>
 #endif // RESOURCE_H

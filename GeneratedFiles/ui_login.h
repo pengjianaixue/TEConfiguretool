@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'login.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.7
+** Created by: Qt User Interface Compiler version 5.12.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_LOGIN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -47,7 +44,9 @@ public:
     QLineEdit *LE_Password;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *B_Login;
+    QSpacerItem *verticalSpacer_3;
     QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *verticalSpacer_4;
     QPushButton *B_Cancel;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *B_Cancel_2;
@@ -58,7 +57,7 @@ public:
     void setupUi(QDialog *Login)
     {
         if (Login->objectName().isEmpty())
-            Login->setObjectName(QStringLiteral("Login"));
+            Login->setObjectName(QString::fromUtf8("Login"));
         Login->resize(912, 546);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -67,30 +66,30 @@ public:
         Login->setSizePolicy(sizePolicy);
         Login->setAutoFillBackground(true);
         gridLayout = new QGridLayout(Login);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         horizontalSpacer_3 = new QSpacerItem(196, 14, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_8->addItem(horizontalSpacer_3);
 
         verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalSpacer_7 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer_7);
 
         label_3 = new QLabel(Login);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
         QFont font;
-        font.setFamily(QStringLiteral("MS UI Gothic"));
+        font.setFamily(QString::fromUtf8("MS UI Gothic"));
         font.setPointSize(48);
         label_3->setFont(font);
-        label_3->setStyleSheet(QStringLiteral("color: rgb(85, 85, 255);"));
+        label_3->setStyleSheet(QString::fromUtf8("color: rgb(85, 85, 255);"));
 
         verticalLayout_2->addWidget(label_3);
 
@@ -102,13 +101,13 @@ public:
         verticalLayout_5->addLayout(verticalLayout_2);
 
         verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(Login);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(102, 0));
         QFont font1;
         font1.setPointSize(12);
@@ -117,7 +116,7 @@ public:
         horizontalLayout->addWidget(label);
 
         LE_user = new QLineEdit(Login);
-        LE_user->setObjectName(QStringLiteral("LE_user"));
+        LE_user->setObjectName(QString::fromUtf8("LE_user"));
 
         horizontalLayout->addWidget(LE_user);
 
@@ -125,9 +124,9 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_2 = new QLabel(Login);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -139,7 +138,7 @@ public:
         horizontalLayout_2->addWidget(label_2);
 
         LE_Password = new QLineEdit(Login);
-        LE_Password->setObjectName(QStringLiteral("LE_Password"));
+        LE_Password->setObjectName(QString::fromUtf8("LE_Password"));
 
         horizontalLayout_2->addWidget(LE_Password);
 
@@ -150,10 +149,10 @@ public:
         verticalLayout_4->addLayout(verticalLayout);
 
         horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         B_Login = new QPushButton(Login);
-        B_Login->setObjectName(QStringLiteral("B_Login"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        B_Login->setObjectName(QString::fromUtf8("B_Login"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(B_Login->sizePolicy().hasHeightForWidth());
@@ -163,23 +162,31 @@ public:
         font2.setBold(false);
         font2.setWeight(50);
         B_Login->setFont(font2);
-        B_Login->setStyleSheet(QLatin1String("image: url(:/Login/imageresource/login.png);\n"
+        B_Login->setStyleSheet(QString::fromUtf8("image: url(:/Login/imageresource/login.png);\n"
 "background-color: rgb(85, 85, 255);"));
 
         horizontalLayout_3->addWidget(B_Login);
 
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Preferred);
+
+        horizontalLayout_3->addItem(verticalSpacer_3);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_5);
 
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Preferred);
+
+        horizontalLayout_3->addItem(verticalSpacer_4);
+
         B_Cancel = new QPushButton(Login);
-        B_Cancel->setObjectName(QStringLiteral("B_Cancel"));
+        B_Cancel->setObjectName(QString::fromUtf8("B_Cancel"));
         sizePolicy2.setHeightForWidth(B_Cancel->sizePolicy().hasHeightForWidth());
         B_Cancel->setSizePolicy(sizePolicy2);
         QFont font3;
         font3.setPointSize(10);
         B_Cancel->setFont(font3);
-        B_Cancel->setStyleSheet(QLatin1String("image: url(:/Login/imageresource/cancel.png);\n"
+        B_Cancel->setStyleSheet(QString::fromUtf8("image: url(:/Login/imageresource/cancel.png);\n"
 "background-color: rgb(255, 85, 127);"));
 
         horizontalLayout_3->addWidget(B_Cancel);
@@ -188,16 +195,16 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_3);
 
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         B_Cancel_2 = new QPushButton(Login);
-        B_Cancel_2->setObjectName(QStringLiteral("B_Cancel_2"));
+        B_Cancel_2->setObjectName(QString::fromUtf8("B_Cancel_2"));
         QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(B_Cancel_2->sizePolicy().hasHeightForWidth());
         B_Cancel_2->setSizePolicy(sizePolicy3);
         B_Cancel_2->setFont(font3);
-        B_Cancel_2->setStyleSheet(QLatin1String("image: url(:/Login/imageresource/cancel.png);\n"
+        B_Cancel_2->setStyleSheet(QString::fromUtf8("image: url(:/Login/imageresource/cancel.png);\n"
 "background-color: rgb(200, 80, 59);"));
 
         horizontalLayout_4->addWidget(B_Cancel_2);
@@ -237,13 +244,13 @@ public:
 
     void retranslateUi(QDialog *Login)
     {
-        Login->setWindowTitle(QApplication::translate("Login", "Login", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Login", " Login", Q_NULLPTR));
-        label->setText(QApplication::translate("Login", "Uername", Q_NULLPTR));
-        label_2->setText(QApplication::translate("Login", "Password", Q_NULLPTR));
-        B_Login->setText(QApplication::translate("Login", "Login", Q_NULLPTR));
-        B_Cancel->setText(QApplication::translate("Login", "Cancel", Q_NULLPTR));
-        B_Cancel_2->setText(QApplication::translate("Login", "Register", Q_NULLPTR));
+        Login->setWindowTitle(QApplication::translate("Login", "Login", nullptr));
+        label_3->setText(QApplication::translate("Login", " Login", nullptr));
+        label->setText(QApplication::translate("Login", "Uername", nullptr));
+        label_2->setText(QApplication::translate("Login", "Password", nullptr));
+        B_Login->setText(QApplication::translate("Login", "Login", nullptr));
+        B_Cancel->setText(QApplication::translate("Login", "Cancel", nullptr));
+        B_Cancel_2->setText(QApplication::translate("Login", "Register", nullptr));
     } // retranslateUi
 
 };
