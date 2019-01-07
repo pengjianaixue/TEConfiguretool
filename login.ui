@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>912</width>
-    <height>546</height>
+    <height>563</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -264,8 +264,7 @@ background-color: rgb(255, 85, 127);</string>
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">image: url(:/Login/imageresource/cancel.png);
-background-color: rgb(200, 80, 59);</string>
+                <string notr="true">background-color: rgb(200, 80, 59);</string>
                </property>
                <property name="text">
                 <string>Register</string>

@@ -21,6 +21,7 @@ Login::~Login()
 }
 void Login::keyPressEvent(QKeyEvent *Keyevent)
 {
+
 	if (Keyevent->key() == Qt::Key_Enter || Keyevent->key() == Qt::Key_Return)
 	{
 		userLogin();
@@ -29,7 +30,7 @@ void Login::keyPressEvent(QKeyEvent *Keyevent)
 void Login::userLogin()
 {
 
-	if (this->ui->LE_user->text().isEmpty() || this->ui->LE_Password->text().isEmpty() == 0)
+	if (this->ui->LE_user->text().size()==0 || this->ui->LE_Password->text().size() == 0)
 	{
 		QMessageBox::warning(nullptr, "waring", "please input account and password");
 	}

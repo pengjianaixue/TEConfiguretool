@@ -1,6 +1,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 #include <windef.h>
+#include <QDebug>
 #include <sqlext.h>
 #include <QStyleFactory>
 #include <QStandardItem>
@@ -18,5 +19,6 @@
 #include <QtSql/QSqlError.h>
 #include <QEvent>
 #include <QKeyEvent>
+#include <QSqlRecord>
 #include <map>
 #endif // RESOURCE_H

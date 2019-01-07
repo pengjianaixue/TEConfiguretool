@@ -32,7 +32,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QTreeView" name="treeView">
+         <widget class="QTreeView" name="product_treeView">
           <property name="sizeAdjustPolicy">
            <enum>QAbstractScrollArea::AdjustToContents</enum>
           </property>
@@ -223,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>1116</width>
-     <height>17</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">

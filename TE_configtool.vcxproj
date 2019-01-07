@@ -314,7 +314,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;_AMD64_;WIN64;WIN32;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_UITOOLS_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;_X86_;WIN64;WIN32;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_UITOOLS_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -354,7 +354,7 @@
     <QtMoc>
       <QTDIR>$(QTDIR)</QTDIR>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
-      <Define>_WINDOWS;UNICODE;_UNICODE;_AMD64_;WIN64;WIN32;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_UITOOLS_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;%(PreprocessorDefinitions)</Define>
+      <Define>_WINDOWS;UNICODE;_UNICODE;_X86_;WIN64;WIN32;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_UITOOLS_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;%(PreprocessorDefinitions)</Define>
       <CompilerFlavor>msvc</CompilerFlavor>
       <Include>$(Configuration)/moc_predefs.h</Include>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>

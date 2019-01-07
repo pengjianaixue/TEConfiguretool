@@ -4,10 +4,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_ploginform(nullptr),
-	m_bdbsisconnect(false)
+	m_dbbsisconnect(false),
+	m_dbproductinfrotable(nullptr)
 {
+
     // set ground glass BackGround
-    if(QtWin::isCompositionEnabled())
+    /*if(QtWin::isCompositionEnabled())
     {
         QtWin::extendFrameIntoClientArea(this,-1,-1,-1,-1);
         setAttribute(Qt::WA_TranslucentBackground,true);
@@ -20,22 +22,26 @@ MainWindow::MainWindow(QWidget *parent) :
         setAttribute(Qt::WA_TranslucentBackground,false);
         setStyleSheet(QString("MainWindows{Background:%1;}").arg(QtWin::realColorizationColor().name()));
 
-    }
-	
+    }*/
     ui->setupUi(this);
+	this->acceptDrops();
     connectslots();
-    m_ploginform = new Login(this);
+	initdataModel();
+    m_ploginform = new Login();
 	m_ploginform->setWindowTitle("Login");
 	m_ploginform->setWindowFlag(Qt::FramelessWindowHint);
-
-
+	m_productclasslistmodel = new QStandardItemModel(this->ui->product_treeView);
     (this->m_db) = QSqlDatabase::addDatabase("QMYSQL");
     if (!this->m_db.isValid())
     {
+
         QMessageBox::critical(this,"Error","can't find database dirver");
         //exit(0);
     }
+	m_dbproductinfrotable = new QSqlTableModel(this, this->m_db);
+	//LinkToDataBase();
 	m_ploginform->showFullScreen();
+	//GetProductinfro();
 }
 MainWindow::~MainWindow()
 {
@@ -48,8 +54,19 @@ MainWindow::~MainWindow()
         delete m_ploginform;
 		m_ploginform = nullptr;
     }
+	for (size_t i = 0; i < m_productItemlist.size(); i++)
+	{
+		delete m_productItemlist[i];
+	}
     this->m_db.close();
+	m_productclasslistmodel->clear();
+	delete m_productclasslistmodel;
     delete ui;
+}
+int MainWindow::ConnectToDataBase()
+{
+
+	return 0;
 }
 bool MainWindow::SaveData()
 {
@@ -63,7 +80,7 @@ bool MainWindow::SaveData()
 		else
 		{
 			sqlmodel.second->database().rollback();
-			QMessageBox::warning(this, tr("tableModel"), tr("DataBase error: % 1").arg(sqlmodel.second->lastError().text()));
+			QMessageBox::warning(this, tr("tableModel"), tr("DataBase error:%1").arg(sqlmodel.second->lastError().text()));
 			sqlmodel.second->revertAll();
 		}
 	}
@@ -75,6 +92,7 @@ bool MainWindow::SearchDataAndDisplay()
 	
 	for (auto &model : this->m_teconfigname)
 	{
+		
 		this->m_pquerymodellist.insert({ model, new QSqlTableModel(this,this->m_db) });
 		this->m_pquerymodellist.at(model)->setTable(QString(model.c_str()));
 		this->m_pquerymodellist.at(model)->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -111,6 +129,40 @@ bool MainWindow::SearchDataAndDisplay()
 	return true;
 }
 
+bool MainWindow::GetProductinfro()
+{
+	QStringList productrootnode;
+	m_dbproductinfrotable->setTable("product");
+	m_dbproductinfrotable->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	m_dbproductinfrotable->select();
+	
+	//int i = m_dbproductinfrotable->rowCount();
+	for (size_t i = 0; i < m_dbproductinfrotable->rowCount(); ++i)
+	{
+		bool isfind = false;
+		m_productItemlist.clear();
+		QSqlRecord record = m_dbproductinfrotable->record(i);
+		QStandardItem* item1 = new QStandardItem(record.value("productclass").toString());
+		for (size_t i = 0; i < m_productItemlist.size(); i++)
+		{
+			if (m_productItemlist[i]->text() == item1->text())
+			{
+				isfind = true;
+				break;
+			}
+		}
+		if (!isfind)
+		{
+			m_productItemlist.append(item1);
+			m_productclasslistmodel->appendRow(m_productItemlist);
+		}
+		
+	}
+	this->ui->product_treeView->setModel(m_productclasslistmodel);
+	this->ui->product_treeView->show();
+	return true;
+}
+
 void MainWindow::cleardatatableview()
 {
 	for (auto &sqlmodel : m_pquerymodellist)
@@ -142,20 +194,20 @@ void MainWindow::connectslots()
 
 void MainWindow::initdataModel()
 {
-	this->m_teconfigname.push_back("Agenda");
-	this->m_teconfigname.push_back("Ru_CommonInput");
-	this->m_teconfigname.push_back("Te_CommonInput");
-	this->m_teconfigname.push_back("RumaCreateCustom");
-	this->m_teconfigname.push_back("RPV_CommonInput");
-	this->m_teconfigname.push_back("ParHr_CommonInput");
-	this->m_teconfigname.push_back("RCA_CommonInput");
-	this->m_teconfigname.push_back("MircoSlp_CommmonInput");
-	this->m_teconfigname.push_back("CAL_TA_CommonInput");
-	this->m_teconfigname.push_back("ManualTcConfig");
-	this->m_teconfigname.push_back("RCA_RS");
-	this->m_teconfigname.push_back("Internal_RS");
-	this->m_teconfigname.push_back("SPD");
-	this->m_teconfigname.push_back("FCC_RS");
+	this->m_teconfigname.push_back(QString("Agenda").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("Ru_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("Te_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("RumaCreateCustom").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("RPV_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("ParHr_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("RCA_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("MircoSlp_CommmonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("CAL_TA_CommonInput").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("ManualTcConfig").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("RCA_RS").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("Internal_RS").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("SPD").toLower().toStdString());
+	this->m_teconfigname.push_back(QString("FCC_RS").toLower().toStdString());
 
 
 }
@@ -171,7 +223,7 @@ int MainWindow::LinkToDataBase()
     QString databasename = configIniRead->value("/ServerHost/server_database").toString();
     QString databaseport = configIniRead->value("/ServerHost/server_port").toString();
     delete configIniRead;
-	if (!m_bdbsisconnect)
+	if (!m_dbbsisconnect)
 	{
 
 		if (this->m_db.isValid() && !this->m_db.isOpen())
@@ -186,15 +238,13 @@ int MainWindow::LinkToDataBase()
 				QMessageBox::information(this, "Good", "Connect Succes.");
 				this->ui->actionLink->setIcon(QIcon(":/Action/actionimage/imageresource/unlink.png"));
 				this->ui->actionLink->setToolTip("push this button to disconnect database");
-				m_bdbsisconnect = true;
+				m_dbbsisconnect = true;
+				m_ploginform->setModal(true);
 				m_ploginform->showNormal();
                 SearchDataAndDisplay();
-				
-
 			}
 			else
 			{
-
 				QSqlError sqlerror = this->m_db.lastError();
 				QMessageBox::critical(this, "Error", sqlerror.text());
 				m_ploginform->showNormal();
@@ -202,6 +252,7 @@ int MainWindow::LinkToDataBase()
 		}
 		else
 		{
+			
 			QMessageBox::critical(this, "Error", "Connect fail,please check.");
             m_ploginform->showNormal();
 		}
@@ -217,7 +268,7 @@ int MainWindow::LinkToDataBase()
 			this->cleardatatableview();
 			this->ui->actionLink->setIcon(QIcon(":/Action/actionimage/imageresource/link.png"));
 			this->ui->actionLink->setToolTip("push this button to connect database");
-			m_bdbsisconnect = false;
+			m_dbbsisconnect = false;
 		}
 	}
 	return  0; 
