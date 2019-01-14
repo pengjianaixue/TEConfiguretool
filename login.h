@@ -23,7 +23,9 @@ private:
 private slots:
 	void closeloginfram();
 	void userLogin();
-	
+signals:
+	void s_sendaccountandpw(std::string Account, std::string password);
+	void s_Logincancel();
 
 
 

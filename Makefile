@@ -223,6 +223,7 @@ Makefile: TE_configtool.pro C:/Qt/Qt5.9.7/5.9.7/mingw53_32/mkspecs/win32-g++/qma
 		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/mkspecs/features/lex.prf \
 		TE_configtool.pro \
 		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/qtmaind.prl \
+		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5WinExtras.prl \
 		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Sql.prl \
@@ -390,6 +391,7 @@ C:/Qt/Qt5.9.7/5.9.7/mingw53_32/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.9.7/5.9.7/mingw53_32/mkspecs/features/lex.prf:
 TE_configtool.pro:
 C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/qtmaind.prl:
+C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5WinExtras.prl:
 C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.9.7/5.9.7/mingw53_32/lib/Qt5Sql.prl:

@@ -247,7 +247,7 @@ public:
     void retranslateUi(QDialog *Login)
     {
         Login->setWindowTitle(QApplication::translate("Login", "Login", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Login", " Login", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Login", "TECT Login", Q_NULLPTR));
         label->setText(QApplication::translate("Login", "Uername", Q_NULLPTR));
         label_2->setText(QApplication::translate("Login", "Password", Q_NULLPTR));
         B_Login->setText(QApplication::translate("Login", "Login", Q_NULLPTR));

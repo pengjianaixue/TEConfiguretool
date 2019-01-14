@@ -60,7 +60,7 @@
            <string notr="true"/>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="Agenda">
            <attribute name="title">
@@ -223,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>1116</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">

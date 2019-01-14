@@ -13,6 +13,7 @@ Login::Login(QWidget *parent) :
 }
 void Login::closeloginfram()
 {
+	emit s_Logincancel();
 	this->close();
 }
 Login::~Login()
@@ -36,8 +37,7 @@ void Login::userLogin()
 	}
 	else
 	{
-
-		QMessageBox::information(nullptr, "Login infor", "Login fail");
+		emit s_sendaccountandpw(this->ui->LE_user->text().toStdString(), this->ui->LE_Password->text().toStdString());	
 	}
 	
 
