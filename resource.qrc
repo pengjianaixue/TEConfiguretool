@@ -11,6 +11,12 @@
         <file>imageresource/Login.jpg</file>
         <file>imageresource/cancel.png</file>
         <file>imageresource/login.png</file>
+        <file>imageresource/authorization.png</file>
+        <file>imageresource/register.png</file>
+        <file>imageresource/Account.png</file>
+        <file>imageresource/DepartMent.png</file>
+        <file>imageresource/Password.png</file>
+        <file>imageresource/passwordconfirmation.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>data_configuration.ico</file>

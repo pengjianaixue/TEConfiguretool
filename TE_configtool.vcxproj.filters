@@ -62,6 +62,9 @@
     <ClCompile Include="treeitem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="accountregister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="login.h">
@@ -74,6 +77,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <QtMoc Include="treemodel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="accountregister.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -90,6 +96,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="accountregister.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

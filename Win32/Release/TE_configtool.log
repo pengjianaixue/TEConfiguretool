@@ -1,2 +1,13 @@
-﻿  mainwindow.cpp
+﻿  Generate moc_predefs.h
+  Moc'ing accountregister.h...
+  Moc'ing login.h...
+  Moc'ing mainwindow.h...
+  accountregister.cpp
+  login.cpp
+  main.cpp
+  mainwindow.cpp
+  moc_accountregister.cpp
+  moc_login.cpp
+  moc_mainwindow.cpp
+  qrc_resource.cpp
   TE_configtool.vcxproj -> C:\Users\eijpnae\Documents\GitHub\TEConfiguretool\Release\TEConfiguretool.exe

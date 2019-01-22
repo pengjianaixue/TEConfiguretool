@@ -22,7 +22,7 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="TopGirdLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_6">
      <item>
@@ -41,7 +41,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
+        <layout class="QVBoxLayout" name="VL_component">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
@@ -251,7 +251,7 @@ background-color: rgb(255, 85, 127);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QPushButton" name="B_Cancel_2">
+              <widget class="QPushButton" name="B_Register">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>

@@ -4,6 +4,8 @@
 #include <QtWinExtras/QtWinExtras>
 #include "resource.h"
 #include "login.h"
+
+extern QSqlDatabase				s_dbreousre;
 namespace Ui {
 class MainWindow;
 }
@@ -13,7 +15,6 @@ enum UserEditPermission
 	TeGuard,
 	Useonly,
 };
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -21,15 +22,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-public slots:
-    int LinkToDataBase();
-	int ConnectToDataBase();
-	bool SaveData();
-	bool SearchDataAndDisplay();
-	bool GetProductinfro();
-	void Loginjudge(std::string Account, std::string password);
-	void UserDisPlayData();
-	void LoginCancel();
 private:
 	void cleardatatableview();
 	void connectslots();
@@ -38,7 +30,7 @@ private:
 private:
     Ui::MainWindow				*ui;
     Login						*m_ploginform;
-    QSqlDatabase				m_db;
+    
 	bool						m_dbbsisconnect;
 	std::vector<std::string>	m_teconfigname;
 	QSqlTableModel				*m_dbproductinfrotable;
@@ -49,8 +41,18 @@ private:
 	QSqlQuery					*m_userLogindbmodel;
 	bool						m_LoginFlag;
 	std::map<std::string, QSqlTableModel*>	 m_pquerymodellist;
+public slots:
+	int LinkToDataBase();
+	int ConnectToDataBase();
+	bool SaveData();
+	bool SearchDataAndDisplay();
+	bool GetProductinfro();
+	void Loginjudge(std::string Account, std::string password);
+	void UserDisPlayData();
+	void LoginCancel();
+public:
+	
 
-	//std::map<std::string, QSqlQueryModel*>	 m_pquerymodellist;
 };
 
 #endif // MAINWINDOW_H
