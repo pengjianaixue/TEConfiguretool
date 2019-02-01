@@ -8,8 +8,6 @@ Login::Login(QWidget *parent) :
 	m_accountregisterLayout(nullptr)
 	
 {
-
-
     ui->setupUi(this);
     this->setModal(true);
 	Init();

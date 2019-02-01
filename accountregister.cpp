@@ -5,21 +5,25 @@ accountregister::accountregister(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::accountregister),
 	m_dbResoure(nullptr),
-	m_dbtablemodel(nullptr)
+	m_dbtablemodel(nullptr),
+	m_AuthorizationForm(nullptr)
 {
     ui->setupUi(this);
     Init();
 	if (!::s_dbreousre.isValid())
 	{	
-		
 		QMessageBox::critical(this, "Error", "can't find database dirver");
 		exit(0);
 	}
+	m_AuthorizationForm = new AuthorizationForm;
+	
+	m_AuthorizationForm->hide();
 	m_dbtablemodel = new QSqlTableModel(this, ::s_dbreousre);
 	m_dbtablemodel->setTable("user");
 	m_dbtablemodel->setEditStrategy(QSqlTableModel::EditStrategy::OnManualSubmit);
     connect(this->ui->PB_Close,&QPushButton::clicked,this,&accountregister::closethiswidget);
 	connect(this->ui->PB_Register, &QPushButton::clicked, this, &accountregister::RegisterPbReponseble);
+	connect(this->ui->PB_Authori, &QPushButton::clicked, this, &accountregister::AuthorizationUserAccount);
 
 }
 accountregister::~accountregister()
@@ -73,14 +77,14 @@ void accountregister::RegisterPbReponseble()
 	else
 	{
 
-		QSqlRecord userinfor;
+		QSqlRecord userinfor = m_dbtablemodel->record();;
 		userinfor.setValue("userid", this->ui->LE_UserAccount->text());
 		userinfor.setValue("userpassword", this->ui->LE_UserPassword->text());
 		userinfor.setValue("userpermissions", this->ui->LE_Deoartment->text());
 #ifdef _DEBUG
 		int i = m_dbtablemodel->rowCount();
 #endif // _DEBUG
-		m_dbtablemodel->insertRecord(m_dbtablemodel->rowCount()+1,userinfor);
+		m_dbtablemodel->insertRecord(-1,userinfor);
 		//m_dbtablemodel->set;
 		/*paramvector.push_back(this->ui->LB_Account->text().toStdString());
 		paramvector.push_back(this->ui->LB_Password->text().toStdString());
@@ -88,16 +92,24 @@ void accountregister::RegisterPbReponseble()
 		emit s_RegisterUserIntodb(paramvector);*/
 		m_dbtablemodel->database().transaction();
 		if (m_dbtablemodel->submitAll())
-		{
+		{	
+
 			m_dbtablemodel->database().commit();
+			QMessageBox::information(nullptr, "Register infor", "Register Succees!");
 		}
 		else
 		{
 			m_dbtablemodel->database().rollback();
-			QMessageBox::warning(this, tr("tableModel"), tr("DataBase error:%1").arg(m_dbtablemodel->lastError().text()));
+			QMessageBox::warning(nullptr, tr("tableModel"), tr("DataBase error:%1").arg(m_dbtablemodel->lastError().text()));
 			m_dbtablemodel->revertAll();
 		}
 	}
+}
+void accountregister::AuthorizationUserAccount()
+{
+	this->ui->gridLayout->addWidget(m_AuthorizationForm);
+	m_AuthorizationForm->show();
+	return;
 }
 void accountregister::closethiswidget()
 {

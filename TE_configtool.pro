@@ -27,18 +27,21 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     login.cpp \
-    accountregister.cpp
+    accountregister.cpp \
+    authorizationform.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
     resource.h \
-    accountregister.h
+    accountregister.h \
+    authorizationform.h
 
 FORMS += \
         mainwindow.ui \
     login.ui \
-    accountregister.ui
+    accountregister.ui \
+    authorizationform.ui
 
 RESOURCES += \
     resource.qrc
